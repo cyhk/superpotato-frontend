@@ -1,96 +1,44 @@
-# AntisocialNetworkFrontend
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses an [Express](http://www.react.express/) backend. The package manager used is NPM.
+# Superpotato (Frontend)
 
-## Troubleshooting Heroku deployment errors
+Manage your network and friends by letting superpotato do the job for you! It'll keep track and remind you of when you need to contact your friends and connections.
 
-Heroku deployment is finicky. Try these steps if you see error messages despite a successful build.<br />
-First, ensure you are running the app in production mode. To do so, go to `package.json` and check that `scripts` matches the following:
+This project was built by @sugoh with input from @cyhk on the SignUp component. This project is currently work-in-progress.
 
-```javascript
-"scripts": {
-    "start": "node server.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+For mobile, visit [superpotato-mobile](https://github.com/cyhk/superpotato-mobile).
+
+## Getting Started
+
+1. Clone this repo
+
+```
+git clone https://github.com/cyhk/superpotato-frontend.git
 ```
 
-If `"start": "react-scripts start"`, you are in development mode. Please change it to `"start": "node server.js"`.
+2. cd into the directory, install required packages, then start the app
 
-If you are still seeing errors on Heroku, there might be errors in `package-lock.json`. To fix this, do a fresh install of `npm` in `antisocial-webapp` by running the following in terminal once you are in the `antisocial-webapp` directory:
 ```
-rm -r node_modules
-rm package-lock.json
 npm install
-npm add express express-favicon path
+npm start
 ```
-Now push to Git (Heroku branch) and try deploying to Heroku again.
 
-## Available Scripts
+This will run your app on http://localhost:3000
 
-In the project directory, you can run:
+## App Information
 
-### `npm start`
+### Component Architecture
 
-Runs the app in production mode. Use after `npm build`.<br />
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.<br />
-
-To run the app in the development mode, replace `node server.js` with `react-scripts start` in `package.json` first.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.<br />
-In development mode, the page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+App
+├─┬ Nav
+│ └─┬ ModalSignUp (reused in Header, Footer)
+│   └── SignUp (reused in Header, Footer)
+├─┬ Header
+│ └─┬ ModalSignUp (reused in Nav, Footer)
+│   └── SignUp (reused in Nav, Footer)
+├── Features
+├── About
+├── FAQ
+└─┬ Footer
+│ └─┬ ModalSignUp (reused in Nav, Header)
+│   └── SignUp (reused in Nav, Header)
+```
